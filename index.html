@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shopping List App</title>
+  <link rel="stylesheet" href="main.css">
+</head>
+<body>
+<div id="shopping-list">
+  <!-- <h1>{{ header ? header.toLocaleUpperCase() : "Something else .." }}</h1> -->
+  <h1>{{ header || "Something else .." }}</h1>
+  <ul>
+    <li v-for="item in items" :key="item.id">{{ item.label }}</li>
+  </ul>
+  <input v-model="header">
+</div>
+<script src="https://unpkg.com/vue@3"></script>
+<script>
+  const shoppingList = Vue.createApp({
+    data() {
+      return {
+        header: "No jippiaijee!",
+        items: [
+          { id: 1, label: "Rakkaan 10 hienoa lätsää" },
+          { id: 2, label: "Meitsin musta pipo" },
+          { id: 3, label: "Ja sit jonkun stetsoni.." }
+        ]
+      }
+    }
+  })
+          .mount("#shopping-list")
+</script>
+</body>
+</html>
